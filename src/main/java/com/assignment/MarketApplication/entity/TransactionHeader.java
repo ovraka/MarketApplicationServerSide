@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -35,5 +36,5 @@ public class TransactionHeader {
     private Double total;
 
     @Column(name = "Date")
-    private Date date;
+    private LocalDate date;
 }
