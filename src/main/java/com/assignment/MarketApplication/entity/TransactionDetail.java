@@ -15,11 +15,18 @@ import java.math.BigDecimal;
 public class TransactionDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "DocumentNumber", nullable = false)
-    private Long documentNumber;
+    @Column(name = "Id", nullable = false)
+    private Long id;
 
-    @Column(name = "DocumentCode")
-    private String documentCode;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "DocumentNumberId", insertable = false, updatable = false)
+    private TransactionDetail transactionDetail;
+
+    @Column(name = "DocumentNumberId", nullable = false)
+    private String documentNumberId;
+
+    @Column(name = "DocumentCodeId")
+    private String documentCodeId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ProductCodeId", insertable = false, updatable = false)

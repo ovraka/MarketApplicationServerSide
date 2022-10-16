@@ -18,18 +18,11 @@ import java.util.Date;
 public class TransactionHeader {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id", nullable = false)
-    private Long id;
+    @Column(name = "DocumentNumber", nullable = false)
+    private Long documentNumber;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "DocumentNumberId", insertable = false, updatable = false)
-    private TransactionDetail transactionDetail;
-
-    @Column(name = "DocumentNumberId", nullable = false)
-    private String documentNumberId;
-
-    @Column(name = "DocumentCodeId")
-    private String documentCodeId;
+    @Column(name = "DocumentCode")
+    private String documentCode;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "UserId", insertable = false, updatable = false)
